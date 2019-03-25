@@ -1,0 +1,4 @@
+name = "ParallelComprehension"
+uuid = "10bb75f6-4f47-11e9-3d0b-c7ff62759dd3"
+authors = ["ksteimel <ksteimel@iu.edu>"]
+version = "0.1.0"
