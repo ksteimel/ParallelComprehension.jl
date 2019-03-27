@@ -1,6 +1,6 @@
 module ParallelComprehension
-export @par_thread
-macro par_thread(comp)
+export @par_comp
+macro par_comp(comp)
     if comp.head == :comprehension
         content = comp.args[1]
         op = :+
