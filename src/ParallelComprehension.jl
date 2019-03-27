@@ -16,10 +16,10 @@ macro par_thread(comp)
         end
         quote
             # init array
-            first_res = $(op)($(source)[1], $(operand2))
-            res_array = Array{typeof(first_res)}(undef, length($(source)))
-            for index = 1:length($(source))
-                res_array[index] = $(op)($(operand2), $(source)[index])
+            first_res = $(esc(op))($(esc(source))[1], $(esc(operand2)))
+            res_array = Array{typeof(first_res)}(undef, length($(esc(source))))
+            for index = 1:length($(esc(source)))
+                res_array[index] = $(esc(op))($(esc(operand2)), $(esc(source))[index])
             end
             res_array
         end
