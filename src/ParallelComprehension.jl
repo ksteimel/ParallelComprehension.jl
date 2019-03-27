@@ -1,5 +1,5 @@
 module ParallelComprehension
-
+export @par_thread
 macro par_thread(comp)
     if comp.head == :comprehension
         content = comp.args[1]
@@ -19,11 +19,10 @@ macro par_thread(comp)
             first_res = $(op)($(source)[1], $(operand2))
             res_array = Array{typeof(first_res)}(undef, length($(source)))
             for index = 1:length($(source))
-                res_array[index] = $(op)($(source)[index], $(operand2))
+                res_array[index] = $(op)($(operand2), $(source)[index])
             end
             res_array
         end
     end
 end
-export par_thread
 end # module
